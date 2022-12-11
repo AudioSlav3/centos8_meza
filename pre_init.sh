@@ -31,13 +31,15 @@ warn="[${YELLOW}WARN${NC}] "
 update_misc_settings () {
  
 echo "#### PERFORM THE FOLLOWING AS ROOT ###"
-echo "## visudo "
+echo "## sudo visudo "
 echo "## Add to end of file:"
 echo "## ${USER}  ALL=(ALL)       NOPASSWD: ALL"
 echo "## :wq"
 echo "######################################"
 while ! test -f "${HOME}/sudo.done"; do 
   echo -e "${brown} Press [ENTER] ONLY AFTER completing ALL of the above.${NC}" 
+  read ans
+  sudo visudo
   read ans
   if $(sudo cat /etc/sudoers | grep -q ${USER}); then
     touch ${HOME}/sudo.done
