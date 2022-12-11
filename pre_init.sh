@@ -70,7 +70,7 @@ update_packages () {
 	 else
 	  echo -e "${ok}${GREEN}No Packages to Install${NC}"
 	 fi
-	 touch ${HOME}/sudo.done
+	 touch ${HOME}/pkg.done
  done
  
 }
