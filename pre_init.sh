@@ -52,10 +52,10 @@ update_packages () {
  while ! test -f "${HOME}/pkg.done"; do 
 	 myNewPackages=()
 	 sudo yum update
-	 centos_7=gcc make perl bzip2 kernel-headers-$(uname -r) kernel-devel-$(uname -r) elfutils-libelf-devel xorg-x11-drivers xorg-x11-util screen git nano zip unzip php74-pecl-zip.x86_64 dialog
-	 centos_8_vbox=gcc make perl bzip2 kernel-headers-$(uname -r) kernel-devel-$(uname -r) elfutils-libelf-devel xorg-x11-drivers xorg-x11-util
-	 centos_8=$centos_8_vbox screen git nano zip unzip dialog
-	 centos_9=gcc make perl bzip2 kernel-headers-$(uname -r) kernel-devel-$(uname -r) elfutils-libelf-devel xorg-x11-drivers  xorg-x11-utils.x86_64  git nano zip unzip dialog wget
+	 centos_7="gcc make perl bzip2 kernel-headers-$(uname -r) kernel-devel-$(uname -r) elfutils-libelf-devel xorg-x11-drivers xorg-x11-util screen git nano zip unzip php74-pecl-zip.x86_64 dialog"
+	 centos_8_vbox="gcc make perl bzip2 kernel-headers-$(uname -r) kernel-devel-$(uname -r) elfutils-libelf-devel xorg-x11-drivers xorg-x11-util"
+	 centos_8=$centos_8_vbox" screen git nano zip unzip dialog"
+	 centos_9="gcc make perl bzip2 kernel-headers-$(uname -r) kernel-devel-$(uname -r) elfutils-libelf-devel xorg-x11-drivers  xorg-x11-utils.x86_64  git nano zip unzip dialog wget"
 	 centos_ver=$centos_8
 	 for t in $centos_ver; do  
 	  if sudo yum --cacheonly list ${t} | grep -q "Available Packages";  then 
