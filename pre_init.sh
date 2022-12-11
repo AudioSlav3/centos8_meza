@@ -29,14 +29,13 @@ warn="[${YELLOW}WARN${NC}] "
 #################################
 ##### MISC Settings
 update_misc_settings () {
- 
-echo "#### PERFORM THE FOLLOWING AS ROOT ###"
-echo "## sudo visudo "
-echo "## Add to end of file:"
-echo "## ${USER}  ALL=(ALL)       NOPASSWD: ALL"
-echo "## :wq"
-echo "######################################"
 while ! test -f "${HOME}/sudo.done"; do 
+  echo -e "${info}#### PERFORM THE FOLLOWING AS ROOT ###${NC}"
+  echo -e "${info}## sudo visudo ${NC}"
+  echo -e "${info}## Add to end of file:${NC}"
+  echo -e "${info}## ${purple}${USER}  ALL=(ALL)       NOPASSWD: ALL${NC}"
+  echo -e "${info}## :wq${NC}"
+  echo -e "${info}######################################${NC}"
   echo -e "${brown} Press [ENTER] ONLY AFTER completing ALL of the above.${NC}" 
   read ans
   sudo visudo
@@ -53,8 +52,8 @@ update_packages () {
 	 myNewPackages=()
 	 sudo yum update
 	 centos_7="gcc make perl bzip2 kernel-headers-$(uname -r) kernel-devel-$(uname -r) elfutils-libelf-devel xorg-x11-drivers xorg-x11-util screen git nano zip unzip php74-pecl-zip.x86_64 dialog"
-	 centos_8_vbox="gcc make perl bzip2 kernel-headers-$(uname -r) kernel-devel-$(uname -r) elfutils-libelf-devel xorg-x11-drivers xorg-x11-util"
-	 centos_8=$centos_8_vbox" screen git nano zip unzip dialog"
+	 centos_8_vbox="gcc make perl bzip2 kernel-headers-$(uname -r) kernel-devel-$(uname -r) elfutils-libelf-devel xorg-x11-drivers xorg-x11-util.x86_64"
+	 centos_8=$centos_8_vbox" git nano zip unzip dialog"
 	 centos_9="gcc make perl bzip2 kernel-headers-$(uname -r) kernel-devel-$(uname -r) elfutils-libelf-devel xorg-x11-drivers  xorg-x11-utils.x86_64  git nano zip unzip dialog wget"
 	 centos_ver=$centos_8
 	 for t in $centos_ver; do  
