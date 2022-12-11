@@ -83,7 +83,7 @@ install_VBoxGuest () {
  len=${#rom_array[@]}
  ans=99
  until [[ ! -z "${rom_array[$ans]}" ]]; do 
-   for (( i=0; i<$len; i++ )); do printf "$i%s\n"  "${rom_array[$i]}" ; done
+   for (( i=0; i<$len; i++ )); do printf "$i) %s\n"  "${rom_array[$i]}" ; done
    echo -e "${brown} Which one is VBoxGuestAdditions on? (ex, if on sr1, then input  ${NC}" 
    read ans; 
  done; 
@@ -91,7 +91,7 @@ install_VBoxGuest () {
    echo "invalid"
  fi
  sudo mount ${rom_array[$ans]} /cdrom
- if [ test -f /cdrom/VBoxLinuxAdditions.run ]; then 
+ if test -f /cdrom/VBoxLinuxAdditions.run ; then 
    echo "sudo /cdrom/VBoxLinuxAdditions.run"
    touch ${HOME}/vbox.done
  fi 
