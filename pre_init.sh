@@ -50,7 +50,7 @@ done
 update_packages () {
  while ! test -f "${HOME}/pkg.done"; do 
 	 myNewPackages=()
-	 sudo yum update 2&>/dev/nul
+	 sudo yum update 
 	 centos_7="gcc make perl bzip2 kernel-headers-$(uname -r) kernel-devel-$(uname -r) elfutils-libelf-devel xorg-x11-drivers xorg-x11-util screen git nano zip unzip php74-pecl-zip.x86_64 dialog"
 	 centos_8_vbox="gcc make perl bzip2 kernel-headers-$(uname -r) kernel-devel-$(uname -r) elfutils-libelf-devel xorg-x11-drivers xorg-x11-utils.x86_64"
 	 centos_8=$centos_8_vbox" git nano zip unzip dialog"
