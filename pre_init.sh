@@ -92,7 +92,7 @@ install_VBoxGuest () {
  fi
  sudo mount ${rom_array[$ans]} /cdrom
  if test -f /cdrom/VBoxLinuxAdditions.run ; then 
-   echo "sudo /cdrom/VBoxLinuxAdditions.run"
+   sudo /cdrom/VBoxLinuxAdditions.run
    touch ${HOME}/vbox.done
  fi 
  done
